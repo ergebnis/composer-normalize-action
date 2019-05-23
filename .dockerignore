@@ -1,0 +1,10 @@
+.github/
+vendor/
+.editorconfig
+.gitattributes
+.gitignore
+.travis.yml
+CHANGELOG.md
+LICENSE
+Makefile
+README.md

@@ -1,0 +1,25 @@
+{
+  "name": "localheinz/composer-normalize-action",
+  "type": "library",
+  "description": "Provides a GitHub action for running localheinz/composer-normalize.",
+  "homepage": "https://github.com/localheinz/composer-normalize-action",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "localheinz/composer-normalize": "^1.1.4"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/composer-normalize-action/issues",
+    "source": "https://github.com/localheinz/composer-normalize-action"
+  }
+}

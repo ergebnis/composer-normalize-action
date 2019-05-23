@@ -1,0 +1,44 @@
+# composer-normalize-action
+
+[![Build Status](https://travis-ci.com/localheinz/composer-normalize-action.svg?branch=master)](https://travis-ci.com/localheinz/composer-normalize-action)
+
+## What does this action do?
+
+This action runs [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize) with the `--dry-run` option.
+
+That is, when you enable this action, the action will fail when a `composer.json` is pushed that is not valid or not already normalized.
+
+## Usage
+
+Define a workflow in `.github/main.workflow` like this:
+
+```
+workflow "Main" {
+  on = "push"
+  resolves = ["composer-normalize"]
+}
+
+action "composer-normalize" {
+  uses = "docker://localheinz/composer-normalize-action"
+}
+```
+
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
+
+## Contributing
+
+Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
+
+## Code of Conduct
+
+Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
+
+## License
+
+This package is licensed using the MIT License.
+
+## Credits
+
+The implementation of this GitHub action is largely inspired by the work of [Oskar Stark](https://github.com/OskarStark) on the GitHub actions [`OskarStark/php-cs-fixer-ga`](https://github.com/OskarStark/php-cs-fixer-ga) and [`OskarStark/phpstan-ga`](https://github.com/OskarStark/phpstan-ga).
