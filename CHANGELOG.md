@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.1.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.1.0...master).
 
+### Fixed
+
+* Switched to using the `root` user in `Dockerfile` to allow access to the GitHub workspace ([#6](https://github.com/localheinz/composer-normalize-action/pull/6)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.1.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.1.0)
 
 For a full diff see [`afa2393...0.1.0`](https://github.com/localheinz/composer-normalize-action/compare/afa2393...0.1.0).
