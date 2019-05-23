@@ -11,13 +11,9 @@ LABEL "maintainer"="Andreas Möller <am@localheinz.com>"
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-RUN addgroup -g 1000 -S normalizer && adduser -u 1000 -S normalizer -G normalizer
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-USER normalizer
-
-RUN mkdir /home/normalizer/.composer && chown -R normalizer:normalizer /home/normalizer/.composer
-
-COPY --chown=normalizer composer.* /home/normalizer/.composer/
+COPY composer.* /root/.composer/
 
 RUN composer global install
 
