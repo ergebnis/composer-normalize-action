@@ -26,10 +26,9 @@ jobs:
 
       deploy:
         on:
-          branch: master
+          condition: $TRAVIS_BRANCH = master || $TRAVIS_BRANCH = $TRAVIS_TAG
         provider: script
-        skip_cleanup: false
-        script: echo "$DOCKER_PASSWORD" | docker login --password-stdin --username "$DOCKER_USERNAME" &&  docker push localheinz/composer-normalize-action
+        script: .travis/deploy.sh
 
 notifications:
   email: false
