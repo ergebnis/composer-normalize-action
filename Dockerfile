@@ -1,9 +1,9 @@
 FROM php:7.3-alpine
 
 LABEL "com.github.actions.name"="localheinz/composer-normalize-action"
-LABEL "com.github.actions.description"="Run localheinz/composer-normalize in --dry-run mode as a GitHub action"
-LABEL "com.github.actions.icon"="check"
-LABEL "com.github.actions.color"="orange"
+LABEL "com.github.actions.description"="Ensure your PHP project has a normalized composer.json."
+LABEL "com.github.actions.icon"="box"
+LABEL "com.github.actions.color"="green"
 
 LABEL "repository"="https://github.com/localheinz/composer-normalize-action"
 LABEL "homepage"="https://github.com/localheinz/composer-normalize"
