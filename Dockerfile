@@ -13,9 +13,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-COPY composer.* /root/.composer/
-
-RUN composer global install
+RUN composer global require localheinz/composer-normalize:1.1.4
 
 ADD entrypoint.sh /entrypoint.sh
 
