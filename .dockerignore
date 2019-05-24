@@ -1,5 +1,4 @@
 .github/
-.travis/
 vendor/
 .editorconfig
 .gitattributes
