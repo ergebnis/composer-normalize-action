@@ -1,5 +1,5 @@
+.build/
 .github/
-vendor/
 .editorconfig
 .gitattributes
 .gitignore
