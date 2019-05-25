@@ -23,6 +23,21 @@ action "composer-normalize" {
 }
 ```
 
+You can also use a specific tag, for example, `0.2.4` (otherwise, `latest` will be used).
+
+```
+workflow "Main" {
+  on = "push"
+  resolves = ["composer-normalize"]
+}
+
+action "composer-normalize" {
+  uses = "docker://localheinz/composer-normalize-action:0.2.4"
+}
+```
+
+:bulb: Also see [GitHub Actions - Workflow configuration options - Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
+
 ## Changelog
 
 Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
