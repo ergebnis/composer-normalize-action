@@ -36,7 +36,7 @@ action "composer-normalize" {
 }
 ```
 
-:bulb: Also see [GitHub Actions - Workflow configuration options - Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
+:bulb: Also see [GitHub Actions: Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
 
 ### Docker
 
