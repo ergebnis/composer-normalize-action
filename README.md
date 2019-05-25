@@ -38,6 +38,10 @@ action "composer-normalize" {
 
 :bulb: Also see [GitHub Actions - Workflow configuration options - Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
 
+### Docker
+
+A docker image is automatically built and pushed to Docker Hub, see [`localheinz/composer-normalize-action`](https://cloud.docker.com/repository/docker/localheinz/composer-normalize-action).
+
 ## Changelog
 
 Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
