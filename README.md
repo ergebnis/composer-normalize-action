@@ -23,7 +23,7 @@ action "composer-normalize" {
 }
 ```
 
-You can also use a specific tag, for example, `0.2.4` (otherwise, `latest` will be used).
+You can also use a specific tag, for example, `x.y.z` (otherwise, `latest` will be used).
 
 ```
 workflow "Main" {
@@ -32,7 +32,7 @@ workflow "Main" {
 }
 
 action "composer-normalize" {
-  uses = "docker://localheinz/composer-normalize-action:0.2.4"
+  uses = "docker://localheinz/composer-normalize-action:x.y.z"
 }
 ```
 
