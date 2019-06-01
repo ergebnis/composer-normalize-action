@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.2.5...master`](https://github.com/localheinz/composer-normalize-action/compare/0.2.5...master).
+For a full diff see [`0.3.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.3.0...master).
+
+## [`0.3.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.0)
+
+For a full diff see [`0.2.5...0.3.0`](https://github.com/localheinz/composer-normalize-action/compare/0.2.5...0.3.0).
+
+### Changed
+
+* Updated `localheinz/composer-normalize` ([#6](https://github.com/localheinz/composer-normalize-action/pull/6)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.5`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.5)
 
