@@ -14,7 +14,7 @@ For a full diff see [`0.2.5...0.3.0`](https://github.com/localheinz/composer-nor
 
 ### Changed
 
-* Updated `localheinz/composer-normalize` ([#6](https://github.com/localheinz/composer-normalize-action/pull/6)), by [@localheinz](https://github.com/localheinz)
+* Updated `localheinz/composer-normalize` ([#23](https://github.com/localheinz/composer-normalize-action/pull/23)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.5`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.5)
 
