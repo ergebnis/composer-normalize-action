@@ -10,30 +10,38 @@ That is, when you enable this action, the action will fail when a `composer.json
 
 ## Usage
 
-Define a workflow in `.github/main.workflow` like this:
+Define a workflow in `.github/workflows/ci.yml` (or add a job if you alread have defined workflows) like this:
 
-```
-workflow "Main" {
-  on = "push"
-  resolves = ["composer-normalize"]
-}
+```yaml
+name: CI
 
-action "composer-normalize" {
-  uses = "docker://localheinz/composer-normalize-action"
-}
+on: push
+
+jobs:
+  composer-normalize:
+    name: composer-normalize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run localheinz/composer-normalize
+        uses: docker://localheinz/composer-normalize-action
 ```
 
 You can also use a specific tag, for example, `x.y.z` (otherwise, `latest` will be used).
 
-```
-workflow "Main" {
-  on = "push"
-  resolves = ["composer-normalize"]
-}
+```yaml
+name: CI
 
-action "composer-normalize" {
-  uses = "docker://localheinz/composer-normalize-action:x.y.z"
-}
+on: push
+
+jobs:
+  composer-normalize:
+    name: composer-normalize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run localheinz/composer-normalize
+        uses: docker://localheinz/composer-normalize-action:x.y.z
 ```
 
 :bulb: Also see [GitHub Actions: Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
