@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.3.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.3.0...master).
+For a full diff see [`0.3.1...master`](https://github.com/localheinz/composer-normalize-action/compare/0.3.1...master).
+
+## [`0.3.1`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.1)
+
+For a full diff see [`0.3.0...0.3.0`](https://github.com/localheinz/composer-normalize-action/compare/0.3.0...0.3.1).
+
+### Changed
+
+* Updated `README.md` to reflect migration to `yml` format ([#25](https://github.com/localheinz/composer-normalize-action/pull/25)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.3.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.0)
 
