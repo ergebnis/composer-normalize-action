@@ -1,6 +1,6 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 
-name: 'localheinz/composer-normalize-action'
+name: 'composer-normalize-action'
 
 branding:
   icon: 'box'
