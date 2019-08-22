@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+For a full diff see [`0.4.1...master`](https://github.com/localheinz/composer-normalize-action/compare/0.4.1...master).
+
+## [`0.4.1`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.1)
+
+For a full diff see [`0.4.0...0.4.1`](https://github.com/localheinz/composer-normalize-action/compare/0.4.0...0.4.1).
+
+### Fixed
+
+* Use environment variable `COMPOSER_NORMALIZE_VERSION` directly instead of input parameter `composer-normalize-version` and require corresponding version of `localheinz/composer-normalize` in `entrypoint.sh` ([#35](https://github.com/localheinz/composer-normalize-action/pull/35)), by [@localheinz](https://github.com/localheinz)
+
 For a full diff see [`0.4.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.4.0...master).
 
 ## [`0.4.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.0)

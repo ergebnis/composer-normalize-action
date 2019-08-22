@@ -44,9 +44,9 @@ jobs:
         uses: docker://localheinz/composer-normalize-action:x.y.z
 ```
 
-### Inputs
+### Environment Variables
 
-If you wish to specify the version of [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize)  that should be used by the action, you can use the `composer-normalize-version` input parameter:
+If you wish to specify the version of [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize)  that should be used by the action, you can use the `COMPOSER_NORMALIZE_VERSION` environment variable:
 
 ```yaml
 name: CI
@@ -61,8 +61,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Run localheinz/composer-normalize
         uses: docker://localheinz/composer-normalize-action
-        with:
-          composer-normalize-version: '^1.3.0'
+        env:
+          COMPOSER_NORMALIZE_VERSION: '^1.3.0'
 ```
 
 The value can be a range (for example, `^1.3.0`) or an exact version (for example, `1.2.0`).
