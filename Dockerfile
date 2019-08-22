@@ -7,8 +7,9 @@ LABEL "maintainer"="Andreas Möller <am@localheinz.com>"
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_NORMALIZE_VERSION=1.3.0
 
-RUN composer global require localheinz/composer-normalize:1.3.0
+RUN composer global require localheinz/composer-normalize:$COMPOSER_NORMALIZE_VERSION
 
 ADD entrypoint.sh /entrypoint.sh
 
