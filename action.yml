@@ -1,0 +1,15 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+
+name: 'localheinz/composer-normalize-action'
+
+branding:
+  icon: 'box'
+  color: 'green'
+
+description: 'Ensure your PHP project has a normalized composer.json.'
+
+author: Andreas Möller
+
+runs:
+  using: 'docker'
+  image: 'docker://localheinz/composer-normalize-action'
