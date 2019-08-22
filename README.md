@@ -44,7 +44,30 @@ jobs:
         uses: docker://localheinz/composer-normalize-action:x.y.z
 ```
 
-:bulb: Also see [GitHub Actions: Using a Dockerfile image in an action](https://developer.github.com/actions/managing-workflows/workflow-configuration-options/#using-a-dockerfile-image-in-an-action)
+### Inputs
+
+If you wish to specify the version of [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize)  that should be used by the action, you can use the `composer-normalize-version` input parameter:
+
+```yaml
+name: CI
+
+on: push
+
+jobs:
+  composer-normalize:
+    name: composer-normalize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run localheinz/composer-normalize
+        uses: docker://localheinz/composer-normalize-action
+        with:
+          composer-normalize-version: '^1.3.0'
+```
+
+The value can be a range (for example, `^1.3.0`) or an exact version (for example, `1.2.0`).
+
+:bulb: Also see [Automating your workflow with GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions)
 
 ## Examples
 
