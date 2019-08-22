@@ -8,7 +8,7 @@ branding:
 
 description: 'Ensure your PHP project has a normalized composer.json.'
 
-author: Andreas Möller
+author: 'localheinz'
 
 runs:
   using: 'docker'
