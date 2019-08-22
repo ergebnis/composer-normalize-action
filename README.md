@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Run localheinz/composer-normalize
-        uses: docker://localheinz/composer-normalize-action
+      - name: composer-normalize-action
+        uses: localheinz/composer-normalize-action
 ```
 
 You can also use a specific tag, for example, `x.y.z` (otherwise, `latest` will be used).
@@ -40,8 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Run localheinz/composer-normalize
-        uses: docker://localheinz/composer-normalize-action:x.y.z
+      - name: composer-normalize-action
+        uses: localheinz/composer-normalize-action@0.4.1
 ```
 
 ### Environment Variables
@@ -59,8 +59,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Run localheinz/composer-normalize
-        uses: docker://localheinz/composer-normalize-action
+      - name: composer-normalize-action
+        uses: localheinz/composer-normalize-action
         env:
           COMPOSER_NORMALIZE_VERSION: '^1.3.0'
 ```

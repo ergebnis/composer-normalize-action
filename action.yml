@@ -10,14 +10,6 @@ description: 'Ensure your PHP project has a normalized composer.json.'
 
 author: 'localheinz'
 
-inputs:
-  composer-normalize-version:
-    description: 'The version of localheinz/composer-normalize you wish to use.'
-    required: false
-    default: '1.3.0'
-
 runs:
   using: 'docker'
   image: 'docker://localheinz/composer-normalize-action'
-  env:
-    - COMPOSER_NORMALIZE_VERSION: '${{ inputs.composer-normalize-version }}'
