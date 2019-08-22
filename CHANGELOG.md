@@ -6,11 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.3.1...master`](https://github.com/localheinz/composer-normalize-action/compare/0.3.1...master).
+For a full diff see [`0.4.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.4.0...master).
+
+## [`0.4.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.0)
+
+For a full diff see [`0.3.1...0.4.0`](https://github.com/localheinz/composer-normalize-action/compare/0.3.1...0.4.0).
+
+### Changed
+
+* Provided metadata for the action via `action.yml` ([#28](https://github.com/localheinz/composer-normalize-action/pull/28)), by [@localheinz](https://github.com/localheinz)
+* Adjusted `action.yml` to allow specifying the version of `localheinz/composer-normalize` that should be used by the action ([#29](https://github.com/localheinz/composer-normalize-action/pull/29)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.3.1`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.1)
 
-For a full diff see [`0.3.0...0.3.0`](https://github.com/localheinz/composer-normalize-action/compare/0.3.0...0.3.1).
+For a full diff see [`0.3.0...0.3.1`](https://github.com/localheinz/composer-normalize-action/compare/0.3.0...0.3.1).
 
 ### Changed
 
