@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.4.2...master`](https://github.com/localheinz/composer-normalize-action/compare/0.4.2...master).
 
+### Changed
+
+* Started using `php:7.3-cli-alpine` instead of `php:7.3-alpine` as Docker base image ([#39](https://github.com/localheinz/composer-normalize-action/pull/39)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.4.2`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.2)
 
 For a full diff see [`0.4.1...0.4.2`](https://github.com/localheinz/composer-normalize-action/compare/0.4.1...0.4.2).
