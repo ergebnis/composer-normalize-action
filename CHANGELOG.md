@@ -11,6 +11,7 @@ For a full diff see [`0.4.2...master`](https://github.com/localheinz/composer-no
 ### Changed
 
 * Started using `php:7.3-cli-alpine` instead of `php:7.3-alpine` as Docker base image ([#39](https://github.com/localheinz/composer-normalize-action/pull/39)), by [@localheinz](https://github.com/localheinz)
+* Requiring `localheinz/composer-normalize` only when value of `COMPOSER_NORMALIZE_VERSION` environment variable is different from initially installed version ([#40](https://github.com/localheinz/composer-normalize-action/pull/40)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.4.2`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.2)
 
