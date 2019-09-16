@@ -1,0 +1,23 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  - pull_request
+  - push
+
+name: "Continuous Integration"
+
+jobs:
+  build:
+    name: "Build"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - name: "Build and tag Docker image"
+        run: $(which docker) build --tag localheinz/composer-normalize-action ${GITHUB_WORKSPACE}
+
+      - name: "Run Docker image"
+        run: $(which docker) run --interactive --rm --workdir=/normalizer --volume ${GITHUB_WORKSPACE}/.build:/normalizer localheinz/composer-normalize-action:latest
