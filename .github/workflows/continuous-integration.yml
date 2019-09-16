@@ -24,7 +24,7 @@ jobs:
 
       - name: "Docker Login"
         if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}"
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}
 
       - name: "Push Docker image (latest)"
         if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
