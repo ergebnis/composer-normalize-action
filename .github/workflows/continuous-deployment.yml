@@ -1,0 +1,35 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  release:
+    types:
+      - created
+
+name: "Continuous Deployment"
+
+jobs:
+  deploy:
+    name: "Deploy"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        uses: actions/checkout@master
+
+      - name: "Build and tag Docker image"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: $(which docker) build --tag localheinz/composer-normalize-action ${GITHUB_WORKSPACE}
+
+      - name: "Docker Login"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}"
+
+      - name: "Push Docker image"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: $(which docker) push localheinz/composer-normalize-action:$(bash ./.github/workflows/tag-name.sh ${GITHUB_REF})
+
+      - name: "Docker Logout"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: $(which docker) logout

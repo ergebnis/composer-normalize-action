@@ -1,6 +1,7 @@
 # composer-normalize-action
 
-[![Build Status](https://travis-ci.com/localheinz/composer-normalize-action.svg?branch=master)](https://travis-ci.com/localheinz/composer-normalize-action)
+[![CI Status](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
+[![CD Status](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Deployment/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
 
 ## What does this action do?
 
@@ -31,7 +32,7 @@ jobs:
 
 ### Docker image
 
-As an integration with [Travis CI](https://travis-ci.com) automatically builds and pushes a Docker image when a new tag is created in this repository, the recommended way to use this GitHub action is to reference the pre-built Docker image directly, as seen above.
+As Docker images are automatically built and pushed on a merge to `master` or when a new tag is created in this repository, the recommended way to use this GitHub action is to reference the pre-built Docker image directly, as seen above.
 
 :bulb: The Docker image can also be executed directly by running
 
