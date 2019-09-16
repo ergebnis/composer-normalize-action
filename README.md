@@ -1,7 +1,6 @@
 # composer-normalize-action
 
 [![CI Status](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
-[![CD Status](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Deployment/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
 
 ## What does this action do?
 

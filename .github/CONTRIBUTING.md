@@ -2,10 +2,7 @@
 
 We are using [GitHub Actions](https://github.com/features/actions) as continuous integration system.
 
-For details, see
-
-* [`workflows/continuous-integration.yml`](workflows/continuous-integration.yml).
-* [`workflows/continuous-deployment.yml`](workflows/continuous-deployment.yml).
+For details, see [`workflows/continuous-integration.yml`](workflows/continuous-integration.yml).
 
 ## Docker Image
 

@@ -21,3 +21,19 @@ jobs:
 
       - name: "Run Docker image"
         run: $(which docker) run --interactive --rm --workdir=/normalizer --volume ${GITHUB_WORKSPACE}/.build:/normalizer localheinz/composer-normalize-action:latest
+
+      - name: "Docker Login"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}"
+
+      - name: "Push Docker image (latest)"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: $(which docker) push localheinz/composer-normalize-action:latest
+
+      - name: "Push Docker image (versioned)"
+        if: "startsWith('refs/tags/', github.ref)"
+        run: $(which docker) push localheinz/composer-normalize-action:$(bash ./.build/tag-name.sh ${GITHUB_REF})
+
+      - name: "Docker Logout"
+        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        run: $(which docker) logout
