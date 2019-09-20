@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.5.1...master`](https://github.com/localheinz/composer-normalize-action/compare/0.5.1...master).
+For a full diff see [`0.5.2...master`](https://github.com/localheinz/composer-normalize-action/compare/0.5.2...master).
+
+## [`0.5.2`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.2)
+
+For a full diff see [`0.5.1...0.5.2`](https://github.com/localheinz/composer-normalize-action/compare/0.5.1...0.5.2).
+
+### Fixed
+
+* Actually tag Docker image before attempting to push it ([#50](https://github.com/localheinz/composer-normalize-action/pull/50)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.5.1`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.1)
 
