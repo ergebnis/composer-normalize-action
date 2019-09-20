@@ -42,5 +42,5 @@ jobs:
         run: $(which docker) push localheinz/composer-normalize-action:$(bash ./.build/tag-name.sh ${GITHUB_REF})
 
       - name: "Docker Logout"
-        if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
+        if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
         run: $(which docker) logout
