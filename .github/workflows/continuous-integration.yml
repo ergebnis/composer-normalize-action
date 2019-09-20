@@ -19,8 +19,11 @@ jobs:
       - name: "Build and tag Docker image"
         run: $(which docker) build --tag localheinz/composer-normalize-action ${GITHUB_WORKSPACE}
 
-      - name: "Run Docker image"
+      - name: "Run Docker image with default behaviour"
         run: $(which docker) run --interactive --rm --workdir=/normalizer --volume ${GITHUB_WORKSPACE}/.build:/normalizer localheinz/composer-normalize-action:latest
+
+      - name: "Run Docker image with custom behaviour"
+        run: $(which docker) run --interactive --rm --workdir=/normalizer --volume ${GITHUB_WORKSPACE}/.build:/normalizer localheinz/composer-normalize-action:latest --indent-size=1 --indent-style=tab --no-update-lock
 
       - name: "Docker Login"
         if: "'refs/heads/master' == github.ref || startsWith('refs/tags/', github.ref)"
