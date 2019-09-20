@@ -4,13 +4,33 @@
 
 ## What does this action do?
 
-This action runs [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize) with the `--dry-run` option.
-
-That is, when you enable this action, the action will fail when a `composer.json` is pushed that is not valid or not already normalized.
+This action runs [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize).
 
 ## Usage
 
-Define a workflow in `.github/workflows/ci.yml` (or add a job if you already have defined workflows). Here's a basic example:
+Define a workflow in `.github/workflows/ci.yml` (or add a job if you already have defined workflows). 
+
+:bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
+
+
+### Default Behaviour
+
+By default this action will run
+
+```
+$ composer normalize --dry-run
+```
+
+in the working directory. 
+
+When you use this action in a step with the default behaviour, the step will fail when `composer.json`
+
+- does not exist in this directory (be sure to checkout the code first, see [`actions/checkout`](https://github.com/actions/checkout))
+- is not valid
+- is not already normalized
+
+
+Here's an example for a workflow configuration with the default behaviour:
 
 ```yaml
 name: CI
@@ -20,14 +40,48 @@ on: push
 jobs:
   composer-normalize:
     name: composer-normalize
+    
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@master
-      - name: composer-normalize-action
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Run composer normalize
         uses: docker://localheinz/composer-normalize-action:latest
 ```
 
-:bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
+:bulb: Here
+To see this action in action, take a look at the following checks:
+
+* https://github.com/localheinz/composer-normalize-action-example/pull/1/checks
+* https://github.com/localheinz/composer-normalize-action-example/pull/2/checks
+* https://github.com/localheinz/composer-normalize-action-example/pull/3/checks
+
+### Custom Behavior
+
+If you prefer to specify [arguments](https://github.com/localheinz/composer-normalize/tree/1.3.1#arguments) or [options](https://github.com/localheinz/composer-normalize/tree/1.3.1#options) yourself, you can configure those using the `args` option:
+
+```yaml
+name: CI
+
+on: push
+
+jobs:
+  composer-normalize:
+    name: composer-normalize
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Run composer normalize
+        uses: docker://localheinz/composer-normalize-action:latest
+        with:
+            args: ${GITHUB_WORKSPACE}/sub-directory/composer.json --dry-run
+```
 
 ### Docker image
 
@@ -86,14 +140,6 @@ $ composer global require localheinz/composer-normalize:$COMPOSER_NORMALIZE_VERS
 ```
 
 It can be any value that is understood by [`composer`](https://getcomposer.org/doc/articles/versions.md).
-
-## Examples
-
-To see this action in action, take a look at the following checks:
-
-* https://github.com/localheinz/composer-normalize-action-example/pull/1/checks
-* https://github.com/localheinz/composer-normalize-action-example/pull/2/checks
-* https://github.com/localheinz/composer-normalize-action-example/pull/3/checks
 
 ## Changelog
 

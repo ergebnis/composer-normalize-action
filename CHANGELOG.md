@@ -6,12 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.4.2...master`](https://github.com/localheinz/composer-normalize-action/compare/0.4.2...master).
+For a full diff see [`0.5.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.5.0...master).
+
+## [`0.5.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.0)
+
+For a full diff see [`0.4.2...0.5.0`](https://github.com/localheinz/composer-normalize-action/compare/0.4.2...0.5.0).
+
 
 ### Changed
 
 * Started using `php:7.3-cli-alpine` instead of `php:7.3-alpine` as Docker base image ([#39](https://github.com/localheinz/composer-normalize-action/pull/39)), by [@localheinz](https://github.com/localheinz)
 * Requiring `localheinz/composer-normalize` only when value of `COMPOSER_NORMALIZE_VERSION` environment variable is different from initially installed version ([#40](https://github.com/localheinz/composer-normalize-action/pull/40)), by [@localheinz](https://github.com/localheinz)
+* Allow specifying arguments and options for `composer normalize` using the `args` configuration ([#47](https://github.com/localheinz/composer-normalize-action/pull/47)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.4.2`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.2)
 
