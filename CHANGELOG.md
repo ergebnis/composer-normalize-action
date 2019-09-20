@@ -6,12 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.5.0...master`](https://github.com/localheinz/composer-normalize-action/compare/0.5.0...master).
+For a full diff see [`0.5.1...master`](https://github.com/localheinz/composer-normalize-action/compare/0.5.1...master).
+
+## [`0.5.1`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.1)
+
+For a full diff see [`0.5.0...0.5.1`](https://github.com/localheinz/composer-normalize-action/compare/0.5.0...0.5.1).
+
+### Fixed
+
+* Flipped arguments passed to `startsWith()` so Docker images are actually tagged when a tag is created on GitHub ([#49](https://github.com/localheinz/composer-normalize-action/pull/49)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.5.0`](https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.0)
 
 For a full diff see [`0.4.2...0.5.0`](https://github.com/localheinz/composer-normalize-action/compare/0.4.2...0.5.0).
-
 
 ### Changed
 
