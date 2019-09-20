@@ -8,7 +8,7 @@ This action runs [`localheinz/composer-normalize`](https://github.com/localheinz
 
 ## Usage
 
-Define a workflow in `.github/workflows/ci.yml` (or add a job if you already have defined workflows). 
+Define a workflow in `.github/workflows/ci.yml` (or add a job if you already have defined workflows).
 
 :bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
 
@@ -21,7 +21,7 @@ By default this action will run
 $ composer normalize --dry-run
 ```
 
-in the working directory. 
+in the working directory.
 
 When you use this action in a step with the default behaviour, the step will fail when `composer.json`
 
@@ -80,7 +80,7 @@ jobs:
       - name: Run composer normalize
         uses: docker://localheinz/composer-normalize-action:latest
         with:
-            args: ${GITHUB_WORKSPACE}/sub-directory/composer.json --dry-run
+            args: ./sub-directory/composer.json --dry-run
 ```
 
 ### Docker image
