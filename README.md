@@ -1,6 +1,6 @@
 # composer-normalize-action
 
-[![CI Status](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
+[![Continuous Integration](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
 
 ## What does this action do?
 
@@ -8,10 +8,9 @@ This action runs [`localheinz/composer-normalize`](https://github.com/localheinz
 
 ## Usage
 
-Define a workflow in `.github/workflows/ci.yml` (or add a job if you already have defined workflows).
+Define a workflow in `.github/workflows/continuous-integration.yml` (or add a job if you already have defined workflows).
 
 :bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
-
 
 ### Default Behaviour
 
@@ -29,25 +28,24 @@ When you use this action in a step with the default behaviour, the step will fai
 - is not valid
 - is not already normalized
 
-
 Here's an example for a workflow configuration with the default behaviour:
 
 ```yaml
-name: CI
+name: Continuous Integration
 
 on: push
 
 jobs:
   composer-normalize:
     name: composer-normalize
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout
+      - name: "Checkout"
         uses: actions/checkout@master
 
-      - name: Run composer normalize
+      - name: "Run composer normalize"
         uses: docker://localheinz/composer-normalize-action:latest
 ```
 
@@ -62,25 +60,25 @@ To see this action in action, take a look at the following checks:
 
 If you prefer to specify [arguments](https://github.com/localheinz/composer-normalize/tree/1.3.1#arguments) or [options](https://github.com/localheinz/composer-normalize/tree/1.3.1#options) yourself, you can configure those using the `args` option:
 
-```yaml
-name: CI
+```diff
+ name: Continuous Integration
 
-on: push
+ on: push
 
-jobs:
-  composer-normalize:
-    name: composer-normalize
-    
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
+ jobs:
+   composer-normalize:
+     name: composer-normalize
 
-      - name: Run composer normalize
-        uses: docker://localheinz/composer-normalize-action:latest
-        with:
-            args: ./sub-directory/composer.json --dry-run
+     runs-on: ubuntu-latest
+
+     steps:
+       - name: "Checkout"
+         uses: actions/checkout@master
+
+       - name: "Run composer normalize"
+         uses: docker://localheinz/composer-normalize-action:latest
++        with:
++          args: ./sub-directory/composer.json --dry-run
 ```
 
 ### Docker image
@@ -97,40 +95,49 @@ For more information, see the [Docker Docs: Docker run reference](https://docs.d
 
 Instead of using the latest pre-built Docker image, you can also specify a Docker image tag (which corresponds to the tags [released on GitHub](https://github.com/localheinz/composer-normalize-action/releases)):
 
-```yaml
-name: CI
+```diff
+ name: Continuous Integration
 
-on: push
+ on: push
 
-jobs:
-  composer-normalize:
-    name: composer-normalize
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: composer-normalize-action
-        uses: docker://localheinz/composer-normalize-action:0.4.2
+ jobs:
+   composer-normalize:
+     name: composer-normalize
+
+     runs-on: ubuntu-latest
+
+     steps:
+       - name: "Checkout"
+         uses: actions/checkout@master
+
+       - name: "Run composer normalize"
+-        uses: docker://localheinz/composer-normalize-action:latest
++        uses: docker://localheinz/composer-normalize-action:0.4.2
 ```
 
 ### Environment Variables
 
 If you wish to specify the version of [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize)  that should be used by the action, you can use the `COMPOSER_NORMALIZE_VERSION` environment variable:
 
-```yaml
-name: CI
+```diff
+ name: Continuous Integration
 
-on: push
+ on: push
 
-jobs:
-  composer-normalize:
-    name: composer-normalize
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: composer-normalize-action
-        uses: docker://localheinz/composer-normalize-action:0.4.2
-        env:
-          COMPOSER_NORMALIZE_VERSION: '^1.3.0'
+ jobs:
+   composer-normalize:
+     name: composer-normalize
+
+     runs-on: ubuntu-latest
+
+     steps:
+       - name: "Checkout"
+         uses: actions/checkout@master
+
+       - name: composer-normalize-action
+         uses: docker://localheinz/composer-normalize-action:latest
++        env:
++          COMPOSER_NORMALIZE_VERSION: '^1.3.0'
 ```
 
 This value will be passed to [`entrypoint.sh`](entrypoint.sh) where it will be used for running
