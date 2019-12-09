@@ -18,8 +18,17 @@ labels:
   - name: bug
     color: ee0701
 
+  - name: dependency
+    color: 0366d6
+
   - name: enhancement
     color: 0e8a16
+
+  - name: question
+    color: cc317c
+
+  - name: security
+    color: ee0701
 
   - name: stale
     color: eeeeee
