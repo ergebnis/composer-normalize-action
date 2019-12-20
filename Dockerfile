@@ -1,4 +1,4 @@
-FROM php:7.3-cli-alpine
+FROM php:7.4-cli-alpine
 
 LABEL "repository"="https://github.com/localheinz/composer-normalize-action"
 LABEL "homepage"="https://github.com/localheinz/composer-normalize"
