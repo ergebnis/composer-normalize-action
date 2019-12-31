@@ -15,6 +15,7 @@ For a full diff see [`0.5.2...0.6.0`][0.5.2...0.6.0].
 ### Changed
 
 * References after move to [@ergebnis] ([#57]), by [@localheinz]
+* Updated `ergebnis/composer-normalize` from `1.3.0` to `2.1.2` ([#59]), by [@localheinz]
 
 ## [`0.5.2`][0.5.2]
 
@@ -188,6 +189,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [#49]: https://github.com/ergebnis/composer-normalize-action/pull/49
 [#50]: https://github.com/ergebnis/composer-normalize-action/pull/50
 [#57]: https://github.com/ergebnis/composer-normalize-action/pull/57
+[#59]: https://github.com/ergebnis/composer-normalize-action/pull/59
 
 [@localheinz]: https://github.com/localheinz
 [@ergebnis]: https://github.com/localheinz
