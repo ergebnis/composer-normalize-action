@@ -38,7 +38,7 @@ repository:
   allow_rebase_merge: false
   allow_squash_merge: false
   default_branch: master
-  description: ":octocat: + :musical_note: Provides a GitHub action for running localheinz/composer-normalize."
+  description: ":octocat: + :musical_note: Provides a GitHub action for running ergebnis/composer-normalize."
   has_downloads: true
   has_issues: true
   has_pages: false

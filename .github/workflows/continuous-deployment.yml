@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE: localheinz/composer-normalize-action
+      DOCKER_IMAGE: ergebnis/composer-normalize-action
 
     steps:
       - name: "Checkout"
