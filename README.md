@@ -1,5 +1,6 @@
 # composer-normalize-action
 
+[![Continuous Deployment](https://github.com/ergebnis/composer-normalize-action/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/composer-normalize-action/actions)
 [![Continuous Integration](https://github.com/ergebnis/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/composer-normalize-action/actions)
 
 ## What does this action do?
