@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE: localheinz/composer-normalize-action
+      DOCKER_IMAGE: ergebnis/composer-normalize-action
 
     steps:
       - name: "Checkout"
@@ -22,7 +22,7 @@ jobs:
         run: $(which docker) build --tag ${DOCKER_IMAGE}:latest .
 
       - name: "Run Docker image with default behaviour"
-        run: $(which docker) run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app localheinz/composer-normalize-action:latest
+        run: $(which docker) run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ergebnis/composer-normalize-action:latest
 
       - name: "Run Docker image with custom behaviour"
-        run: $(which docker) run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app localheinz/composer-normalize-action:latest --indent-size=1 --indent-style=tab --no-update-lock
+        run: $(which docker) run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ergebnis/composer-normalize-action:latest --indent-size=1 --indent-style=tab --no-update-lock

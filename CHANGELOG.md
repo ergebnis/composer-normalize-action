@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.5.2...master`][0.5.2...master].
+For a full diff see [`0.6.0...master`][0.6.0...master].
+
+## [`0.6.0`][0.6.0]
+
+For a full diff see [`0.5.2...0.6.0`][0.5.2...0.6.0].
+
+### Changed
+
+* References after move to [@ergebnis] ([#57]), by [@localheinz]
 
 ## [`0.5.2`][0.5.2]
 
@@ -31,7 +39,7 @@ For a full diff see [`0.4.2...0.5.0`][0.4.2...0.5.0].
 ### Changed
 
 * Started using `php:7.3-cli-alpine` instead of `php:7.3-alpine` as Docker base image ([#39]), by [@localheinz]
-* Requiring `localheinz/composer-normalize` only when value of `COMPOSER_NORMALIZE_VERSION` environment variable is different from initially installed version ([#40]), by [@localheinz]
+* Requiring `ergebnis/composer-normalize` only when value of `COMPOSER_NORMALIZE_VERSION` environment variable is different from initially installed version ([#40]), by [@localheinz]
 * Allow specifying arguments and options for `composer normalize` using the `args` configuration ([#47]), by [@localheinz]
 
 ## [`0.4.2`][0.4.2]
@@ -48,7 +56,7 @@ For a full diff see [`0.4.0...0.4.1`][0.4.0...0.4.1].
 
 ### Fixed
 
-* Use environment variable `COMPOSER_NORMALIZE_VERSION` directly instead of input parameter `composer-normalize-version` and require corresponding version of `localheinz/composer-normalize` in `entrypoint.sh` ([#36]), by [@localheinz]
+* Use environment variable `COMPOSER_NORMALIZE_VERSION` directly instead of input parameter `composer-normalize-version` and require corresponding version of `ergebnis/composer-normalize` in `entrypoint.sh` ([#36]), by [@localheinz]
 
 ## [`0.4.0`][0.4.0]
 
@@ -57,7 +65,7 @@ For a full diff see [`0.3.1...0.4.0`][0.3.1...0.4.0].
 ### Changed
 
 * Provided metadata for the action via `action.yml` ([#28]), by [@localheinz]
-* Adjusted `action.yml` to allow specifying the version of `localheinz/composer-normalize` that should be used by the action ([#29]), by [@localheinz]
+* Adjusted `action.yml` to allow specifying the version of `ergebnis/composer-normalize` that should be used by the action ([#29]), by [@localheinz]
 
 ## [`0.3.1`][0.3.1]
 
@@ -73,7 +81,7 @@ For a full diff see [`0.2.5...0.3.0`][0.2.5...0.3.0].
 
 ### Changed
 
-* Updated `localheinz/composer-normalize` ([#23]), by [@localheinz]
+* Updated `ergebnis/composer-normalize` ([#23]), by [@localheinz]
 
 ## [`0.2.5`][0.2.5]
 
@@ -89,7 +97,7 @@ For a full diff see [`0.2.3...0.2.4`][0.2.3...0.2.4].
 
 ### Fixed
 
-* Switched to installing `localheinz/composer-normalize` when building the Docker image ([#10]), by [@localheinz]
+* Switched to installing `ergebnis/composer-normalize` when building the Docker image ([#10]), by [@localheinz]
 
 ## [`0.2.3`][0.2.3]
 
@@ -127,56 +135,59 @@ For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0].
 
 For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 
-[0.1.0]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.1.0
-[0.2.0]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.0
-[0.2.1]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.1
-[0.2.2]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.2
-[0.2.3]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.3
-[0.2.4]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.4
-[0.2.5]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.2.5
-[0.3.0]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.0
-[0.3.1]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.3.1
-[0.4.0]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.0
-[0.4.1]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.1
-[0.4.2]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.4.2
-[0.5.0]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.0
-[0.5.1]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.1
-[0.5.2]: https://github.com/localheinz/composer-normalize-action/releases/tag/0.5.2
+[0.1.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.1.0
+[0.2.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.0
+[0.2.1]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.1
+[0.2.2]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.2
+[0.2.3]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.3
+[0.2.4]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.4
+[0.2.5]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.2.5
+[0.3.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.3.0
+[0.3.1]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.3.1
+[0.4.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.4.0
+[0.4.1]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.4.1
+[0.4.2]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.4.2
+[0.5.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.5.0
+[0.5.1]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.5.1
+[0.5.2]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.5.2
+[0.6.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.6.0
 
+[afa2393...0.1.0]: https://github.com/ergebnis/composer-normalize-action/compare/afa2393...0.1.0
+[0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.1.0...0.2.0
+[0.2.0...0.2.1]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.0...0.2.1
+[0.2.1...0.2.2]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.1...0.2.2
+[0.2.2...0.2.3]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.2...0.2.3
+[0.2.3...0.2.4]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.3...0.2.4
+[0.2.4...0.2.5]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.4...0.2.5
+[0.2.5...0.3.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.2.5...0.3.0
+[0.3.0...0.3.1]: https://github.com/ergebnis/composer-normalize-action/compare/0.3.0...0.3.1
+[0.3.1...0.4.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.3.1...0.4.10
+[0.4.0...0.4.1]: https://github.com/ergebnis/composer-normalize-action/compare/0.4.0...0.4.1
+[0.4.1...0.4.2]: https://github.com/ergebnis/composer-normalize-action/compare/0.4.1...0.4.2
+[0.4.2...0.5.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.4.2...0.5.0
+[0.5.0...0.5.1]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.0...0.5.1
+[0.5.1...0.5.2]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.1...0.5.2
+[0.5.2...0.6.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.2...0.6.0
+[0.6.0...master]: https://github.com/ergebnis/composer-normalize-action/compare/0.6.0...master
 
-[afa2393...0.1.0]: https://github.com/localheinz/composer-normalize-action/compare/afa2393...0.1.0
-[0.1.0...0.2.0]: https://github.com/localheinz/composer-normalize-action/compare/0.1.0...0.2.0
-[0.2.0...0.2.1]: https://github.com/localheinz/composer-normalize-action/compare/0.2.0...0.2.1
-[0.2.1...0.2.2]: https://github.com/localheinz/composer-normalize-action/compare/0.2.1...0.2.2
-[0.2.2...0.2.3]: https://github.com/localheinz/composer-normalize-action/compare/0.2.2...0.2.3
-[0.2.3...0.2.4]: https://github.com/localheinz/composer-normalize-action/compare/0.2.3...0.2.4
-[0.2.4...0.2.5]: https://github.com/localheinz/composer-normalize-action/compare/0.2.4...0.2.5
-[0.2.5...0.3.0]: https://github.com/localheinz/composer-normalize-action/compare/0.2.5...0.3.0
-[0.3.0...0.3.1]: https://github.com/localheinz/composer-normalize-action/compare/0.3.0...0.3.1
-[0.3.1...0.4.0]: https://github.com/localheinz/composer-normalize-action/compare/0.3.1...0.4.10
-[0.4.0...0.4.1]: https://github.com/localheinz/composer-normalize-action/compare/0.4.0...0.4.1
-[0.4.1...0.4.2]: https://github.com/localheinz/composer-normalize-action/compare/0.4.1...0.4.2
-[0.4.2...0.5.0]: https://github.com/localheinz/composer-normalize-action/compare/0.4.2...0.5.0
-[0.5.0...0.5.1]: https://github.com/localheinz/composer-normalize-action/compare/0.5.0...0.5.1
-[0.5.1...0.5.2]: https://github.com/localheinz/composer-normalize-action/compare/0.5.1...0.5.2
-[0.5.2...master]: https://github.com/localheinz/composer-normalize-action/compare/0.5.2...master
-
-[#6]: https://github.com/localheinz/composer-normalize-action/pull/6
-[#7]: https://github.com/localheinz/composer-normalize-action/pull/7
-[#8]: https://github.com/localheinz/composer-normalize-action/pull/8
-[#9]: https://github.com/localheinz/composer-normalize-action/pull/9
-[#10]: https://github.com/localheinz/composer-normalize-action/pull/10
-[#18]: https://github.com/localheinz/composer-normalize-action/pull/18
-[#23]: https://github.com/localheinz/composer-normalize-action/pull/23
-[#25]: https://github.com/localheinz/composer-normalize-action/pull/25
-[#28]: https://github.com/localheinz/composer-normalize-action/pull/28
-[#29]: https://github.com/localheinz/composer-normalize-action/pull/29
-[#36]: https://github.com/localheinz/composer-normalize-action/pull/36
-[#37]: https://github.com/localheinz/composer-normalize-action/pull/37
-[#39]: https://github.com/localheinz/composer-normalize-action/pull/39
-[#40]: https://github.com/localheinz/composer-normalize-action/pull/40
-[#47]: https://github.com/localheinz/composer-normalize-action/pull/47
-[#49]: https://github.com/localheinz/composer-normalize-action/pull/49
-[#50]: https://github.com/localheinz/composer-normalize-action/pull/50
+[#6]: https://github.com/ergebnis/composer-normalize-action/pull/6
+[#7]: https://github.com/ergebnis/composer-normalize-action/pull/7
+[#8]: https://github.com/ergebnis/composer-normalize-action/pull/8
+[#9]: https://github.com/ergebnis/composer-normalize-action/pull/9
+[#10]: https://github.com/ergebnis/composer-normalize-action/pull/10
+[#18]: https://github.com/ergebnis/composer-normalize-action/pull/18
+[#23]: https://github.com/ergebnis/composer-normalize-action/pull/23
+[#25]: https://github.com/ergebnis/composer-normalize-action/pull/25
+[#28]: https://github.com/ergebnis/composer-normalize-action/pull/28
+[#29]: https://github.com/ergebnis/composer-normalize-action/pull/29
+[#36]: https://github.com/ergebnis/composer-normalize-action/pull/36
+[#37]: https://github.com/ergebnis/composer-normalize-action/pull/37
+[#39]: https://github.com/ergebnis/composer-normalize-action/pull/39
+[#40]: https://github.com/ergebnis/composer-normalize-action/pull/40
+[#47]: https://github.com/ergebnis/composer-normalize-action/pull/47
+[#49]: https://github.com/ergebnis/composer-normalize-action/pull/49
+[#50]: https://github.com/ergebnis/composer-normalize-action/pull/50
+[#57]: https://github.com/ergebnis/composer-normalize-action/pull/57
 
 [@localheinz]: https://github.com/localheinz
+[@ergebnis]: https://github.com/localheinz

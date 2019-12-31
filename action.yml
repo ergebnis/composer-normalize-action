@@ -12,4 +12,4 @@ name: 'composer-normalize-action'
 
 runs:
   using: 'docker'
-  image: 'docker://localheinz/composer-normalize-action'
+  image: 'docker://ergebnis/composer-normalize-action'

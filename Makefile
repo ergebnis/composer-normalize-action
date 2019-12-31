@@ -1,6 +1,6 @@
 .PHONY: docker help it
 
-DOCKER_IMAGE:=localheinz/composer-normalize-action
+DOCKER_IMAGE:=ergebnis/composer-normalize-action
 
 it: docker ## Runs the docker target
 

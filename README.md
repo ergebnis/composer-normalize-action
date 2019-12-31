@@ -1,10 +1,10 @@
 # composer-normalize-action
 
-[![Continuous Integration](https://github.com/localheinz/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize-action/actions)
+[![Continuous Integration](https://github.com/ergebnis/composer-normalize-action/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/composer-normalize-action/actions)
 
 ## What does this action do?
 
-This action runs [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize).
+This action runs [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize).
 
 ## Usage
 
@@ -46,19 +46,19 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Run composer normalize"
-        uses: docker://localheinz/composer-normalize-action:latest
+        uses: docker://ergebnis/composer-normalize-action:latest
 ```
 
 :bulb: Here
 To see this action in action, take a look at the following checks:
 
-* https://github.com/localheinz/composer-normalize-action-example/pull/1/checks
-* https://github.com/localheinz/composer-normalize-action-example/pull/2/checks
-* https://github.com/localheinz/composer-normalize-action-example/pull/3/checks
+* https://github.com/ergebnis/composer-normalize-action-example/pull/1/checks
+* https://github.com/ergebnis/composer-normalize-action-example/pull/2/checks
+* https://github.com/ergebnis/composer-normalize-action-example/pull/3/checks
 
 ### Custom Behavior
 
-If you prefer to specify [arguments](https://github.com/localheinz/composer-normalize/tree/1.3.1#arguments) or [options](https://github.com/localheinz/composer-normalize/tree/1.3.1#options) yourself, you can configure those using the `args` option:
+If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/master#arguments) or [options](https://github.com/ergebnis/composer-normalize/master#options) yourself, you can configure those using the `args` option:
 
 ```diff
  name: Continuous Integration
@@ -76,7 +76,7 @@ If you prefer to specify [arguments](https://github.com/localheinz/composer-norm
          uses: actions/checkout@master
 
        - name: "Run composer normalize"
-         uses: docker://localheinz/composer-normalize-action:latest
+         uses: docker://ergebnis/composer-normalize-action:latest
 +        with:
 +          args: ./sub-directory/composer.json --dry-run
 ```
@@ -88,12 +88,12 @@ As Docker images are automatically built and pushed on a merge to `master` or wh
 :bulb: The Docker image can also be executed directly by running
 
 ```
-$ docker run --interactive --rm --tty --workdir=/app --volume ${PWD}:/app localheinz/composer-normalize-action:latest
+$ docker run --interactive --rm --tty --workdir=/app --volume ${PWD}:/app ergebnis/composer-normalize-action:latest
 ```
 
 For more information, see the [Docker Docs: Docker run reference](https://docs.docker.com/engine/reference/run/).
 
-Instead of using the latest pre-built Docker image, you can also specify a Docker image tag (which corresponds to the tags [released on GitHub](https://github.com/localheinz/composer-normalize-action/releases)):
+Instead of using the latest pre-built Docker image, you can also specify a Docker image tag (which corresponds to the tags [released on GitHub](https://github.com/ergebnis/composer-normalize-action/releases)):
 
 ```diff
  name: Continuous Integration
@@ -111,13 +111,13 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
          uses: actions/checkout@master
 
        - name: "Run composer normalize"
--        uses: docker://localheinz/composer-normalize-action:latest
-+        uses: docker://localheinz/composer-normalize-action:0.4.2
+-        uses: docker://ergebnis/composer-normalize-action:latest
++        uses: docker://ergebnis/composer-normalize-action:0.4.2
 ```
 
 ### Environment Variables
 
-If you wish to specify the version of [`localheinz/composer-normalize`](https://github.com/localheinz/composer-normalize)  that should be used by the action, you can use the `COMPOSER_NORMALIZE_VERSION` environment variable:
+If you wish to specify the version of [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize)  that should be used by the action, you can use the `COMPOSER_NORMALIZE_VERSION` environment variable:
 
 ```diff
  name: Continuous Integration
@@ -135,7 +135,7 @@ If you wish to specify the version of [`localheinz/composer-normalize`](https://
          uses: actions/checkout@master
 
        - name: composer-normalize-action
-         uses: docker://localheinz/composer-normalize-action:latest
+         uses: docker://ergebnis/composer-normalize-action:latest
 +        env:
 +          COMPOSER_NORMALIZE_VERSION: '^1.3.0'
 ```
@@ -143,7 +143,7 @@ If you wish to specify the version of [`localheinz/composer-normalize`](https://
 This value will be passed to [`entrypoint.sh`](entrypoint.sh) where it will be used for running
 
 ```
-$ composer global require localheinz/composer-normalize:$COMPOSER_NORMALIZE_VERSION
+$ composer global require ergebnis/composer-normalize:$COMPOSER_NORMALIZE_VERSION
 ```
 
 It can be any value that is understood by [`composer`](https://getcomposer.org/doc/articles/versions.md).
