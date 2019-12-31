@@ -44,5 +44,6 @@ repository:
   has_pages: false
   has_projects: false
   has_wiki: false
+  homepage: "https://github.com/ergebnis/composer-normalize"
   name: composer-normalize-action
   private: false
