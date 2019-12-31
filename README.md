@@ -137,7 +137,7 @@ If you wish to specify the version of [`ergebnis/composer-normalize`](https://gi
        - name: composer-normalize-action
          uses: docker://ergebnis/composer-normalize-action:latest
 +        env:
-+          COMPOSER_NORMALIZE_VERSION: '^1.3.0'
++          COMPOSER_NORMALIZE_VERSION: '^2.1.2'
 ```
 
 This value will be passed to [`entrypoint.sh`](entrypoint.sh) where it will be used for running
