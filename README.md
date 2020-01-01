@@ -50,12 +50,6 @@ jobs:
         uses: "docker://ergebnis/composer-normalize-action:latest"
 ```
 
-To see this action in action, take a look at the following checks:
-
-* https://github.com/ergebnis/composer-normalize-action-example/pull/1/checks
-* https://github.com/ergebnis/composer-normalize-action-example/pull/2/checks
-* https://github.com/ergebnis/composer-normalize-action-example/pull/3/checks
-
 ### Custom Behavior
 
 If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/master#arguments) or [options](https://github.com/ergebnis/composer-normalize/master#options) yourself, you can configure those using the `args` option:
