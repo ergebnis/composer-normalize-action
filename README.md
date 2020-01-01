@@ -116,39 +116,6 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
 +        uses: docker://ergebnis/composer-normalize-action:0.4.2
 ```
 
-### Environment Variables
-
-If you wish to specify the version of [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize)  that should be used by the action, you can use the `COMPOSER_NORMALIZE_VERSION` environment variable:
-
-```diff
- name: Continuous Integration
-
- on: push
-
- jobs:
-   composer-normalize:
-     name: composer-normalize
-
-     runs-on: ubuntu-latest
-
-     steps:
-       - name: "Checkout"
-         uses: actions/checkout@master
-
-       - name: composer-normalize-action
-         uses: docker://ergebnis/composer-normalize-action:latest
-+        env:
-+          COMPOSER_NORMALIZE_VERSION: '^2.1.2'
-```
-
-This value will be passed to [`entrypoint.sh`](entrypoint.sh) where it will be used for running
-
-```
-$ composer global require ergebnis/composer-normalize:$COMPOSER_NORMALIZE_VERSION
-```
-
-It can be any value that is understood by [`composer`](https://getcomposer.org/doc/articles/versions.md).
-
 ## Changelog
 
 Please have a look at [`CHANGELOG.md`](CHANGELOG.md).

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.6.0...master`][0.6.0...master].
 
+### Changed
+
+* Removed possibility to configure version of `ergebnis/composer-normalize` via `COMPOSER_NORMALIZE_VERSION` environment variable ([#63]), by [@localheinz]
+
 ## [`0.6.0`][0.6.0]
 
 For a full diff see [`0.5.2...0.6.0`][0.5.2...0.6.0].
@@ -190,6 +194,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [#50]: https://github.com/ergebnis/composer-normalize-action/pull/50
 [#57]: https://github.com/ergebnis/composer-normalize-action/pull/57
 [#59]: https://github.com/ergebnis/composer-normalize-action/pull/59
+[#63]: https://github.com/ergebnis/composer-normalize-action/pull/63
 
 [@localheinz]: https://github.com/localheinz
 [@ergebnis]: https://github.com/localheinz
