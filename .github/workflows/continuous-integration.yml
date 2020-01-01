@@ -26,3 +26,26 @@ jobs:
 
       - name: "Run Docker image with custom behaviour"
         run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest --indent-size=1 --indent-style=tab --no-update-lock"
+
+  run:
+    name: "Run"
+
+    runs-on: "ubuntu-latest"
+
+    env:
+      DOCKER_IMAGE: "ergebnis/composer-normalize-action"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Copy composer.json from .build into root directory"
+        run: "cp .build/composer.json composer.json"
+
+      - name: "Run composer-normalize-action with default behavior"
+        uses: "./"
+
+      - name: "Run composer-normalize-action with custom behavior"
+        uses: "./"
+        with:
+          args: "--indent-size=1 --indent-style=tab --no-update-lock"
