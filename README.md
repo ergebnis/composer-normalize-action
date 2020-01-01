@@ -78,7 +78,7 @@ If you prefer to specify [arguments](https://github.com/ergebnis/composer-normal
        - name: "Run composer normalize"
          uses: "docker://ergebnis/composer-normalize-action:latest"
 +        with:
-+          args: "normalize ./sub-directory/composer.json"
++          args: "./sub-directory/composer.json --diff --indent-size=2 --indent-style=space"
 ```
 
 ### Docker image
@@ -112,7 +112,7 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
 
        - name: "Run composer normalize"
 -        uses: "docker://ergebnis/composer-normalize-action:latest"
-+        uses: "docker://ergebnis/composer-normalize-action:0.6.0"
++        uses: "docker://ergebnis/composer-normalize-action:0.7.0"
 ```
 
 ## Changelog
