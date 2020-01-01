@@ -12,6 +12,10 @@ For a full diff see [`0.6.0...master`][0.6.0...master].
 
 * Removed possibility to configure version of `ergebnis/composer-normalize` via `COMPOSER_NORMALIZE_VERSION` environment variable ([#63]), by [@localheinz]
 
+### Fixed
+
+* Allowed specifying arguments and options so action can be run in other modes ([#64]), by [@localheinz]
+
 ## [`0.6.0`][0.6.0]
 
 For a full diff see [`0.5.2...0.6.0`][0.5.2...0.6.0].
@@ -195,6 +199,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [#57]: https://github.com/ergebnis/composer-normalize-action/pull/57
 [#59]: https://github.com/ergebnis/composer-normalize-action/pull/59
 [#63]: https://github.com/ergebnis/composer-normalize-action/pull/63
+[#64]: https://github.com/ergebnis/composer-normalize-action/pull/64
 
 [@localheinz]: https://github.com/localheinz
 [@ergebnis]: https://github.com/localheinz

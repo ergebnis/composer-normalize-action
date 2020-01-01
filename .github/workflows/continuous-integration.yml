@@ -24,8 +24,11 @@ jobs:
       - name: "Run Docker image with default behaviour"
         run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest"
 
-      - name: "Run Docker image with custom behaviour"
-        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest --indent-size=1 --indent-style=tab --no-update-lock"
+      - name: "Run Docker image with custom behaviour, specifying options"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest --diff --indent-size=1 --indent-style=space --no-update-lock"
+
+      - name: "Run Docker image with custom behaviour, specifying argument and options"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
 
   run:
     name: "Run"
@@ -45,7 +48,15 @@ jobs:
       - name: "Run composer-normalize-action with default behavior"
         uses: "./"
 
-      - name: "Run composer-normalize-action with custom behavior"
+      - name: "Run composer-normalize-action with custom behavior, specifying options"
         uses: "./"
         with:
-          args: "--indent-size=1 --indent-style=tab --no-update-lock"
+          args: "--diff --indent-size=1 --indent-style=tab --no-update-lock"
+
+      - name: "Remove composer.json from root directory"
+        run: "rm composer.json"
+
+      - name: "Run composer-normalize-action with custom behavior, specifying argument and options"
+        uses: "./"
+        with:
+          args: ".build/composer.json --diff --indent-size=1 --indent-style=tab --no-update-lock"

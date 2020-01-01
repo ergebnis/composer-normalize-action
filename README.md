@@ -32,25 +32,24 @@ When you use this action in a step with the default behaviour, the step will fai
 Here's an example for a workflow configuration with the default behaviour:
 
 ```yaml
-name: Continuous Integration
+name: "Continuous Integration"
 
-on: push
+on: "push"
 
 jobs:
   composer-normalize:
-    name: composer-normalize
+    name: "composer-normalize"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@master
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Run composer normalize"
-        uses: docker://ergebnis/composer-normalize-action:latest
+        uses: "docker://ergebnis/composer-normalize-action:latest"
 ```
 
-:bulb: Here
 To see this action in action, take a look at the following checks:
 
 * https://github.com/ergebnis/composer-normalize-action-example/pull/1/checks
@@ -62,24 +61,24 @@ To see this action in action, take a look at the following checks:
 If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/master#arguments) or [options](https://github.com/ergebnis/composer-normalize/master#options) yourself, you can configure those using the `args` option:
 
 ```diff
- name: Continuous Integration
+ name: "Continuous Integration"
 
- on: push
+ on: "push"
 
  jobs:
    composer-normalize:
-     name: composer-normalize
+     name: "composer-normalize"
 
-     runs-on: ubuntu-latest
+     runs-on: "ubuntu-latest"
 
      steps:
        - name: "Checkout"
-         uses: actions/checkout@master
+         uses: "actions/checkout@v2.0.0"
 
        - name: "Run composer normalize"
-         uses: docker://ergebnis/composer-normalize-action:latest
+         uses: "docker://ergebnis/composer-normalize-action:latest"
 +        with:
-+          args: ./sub-directory/composer.json --dry-run
++          args: "normalize ./sub-directory/composer.json"
 ```
 
 ### Docker image
@@ -103,17 +102,17 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
 
  jobs:
    composer-normalize:
-     name: composer-normalize
+     name: "composer-normalize"
 
-     runs-on: ubuntu-latest
+     runs-on: "ubuntu-latest"
 
      steps:
        - name: "Checkout"
-         uses: actions/checkout@master
+         uses: "actions/checkout@v2.0.0"
 
        - name: "Run composer normalize"
--        uses: docker://ergebnis/composer-normalize-action:latest
-+        uses: docker://ergebnis/composer-normalize-action:0.4.2
+-        uses: "docker://ergebnis/composer-normalize-action:latest"
++        uses: "docker://ergebnis/composer-normalize-action:0.6.0"
 ```
 
 ## Changelog

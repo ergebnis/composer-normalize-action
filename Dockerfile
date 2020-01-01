@@ -10,6 +10,10 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN composer global require ergebnis/composer-normalize:2.2.0 --no-interaction --no-progress --no-suggest
 
-ADD entrypoint.sh /entrypoint.sh
+RUN mkdir /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+WORKDIR /app
+
+ENTRYPOINT ["/usr/local/bin/composer", "normalize"]
+
+CMD ["--dry-run"]
