@@ -8,7 +8,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN composer global require ergebnis/composer-normalize:2.1.2 --no-interaction --no-progress --no-suggest
+RUN composer global require ergebnis/composer-normalize:2.2.0 --no-interaction --no-progress --no-suggest
 
 ADD entrypoint.sh /entrypoint.sh
 
