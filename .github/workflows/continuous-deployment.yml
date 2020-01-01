@@ -1,46 +1,46 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
+name: "Continuous Deployment"
+
 on:
   push:
     branches:
-      - master
+      - "master"
     tags:
       - "**"
-
-name: "Continuous Deployment"
 
 jobs:
   build:
     name: "Build and deploy"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     env:
-      DOCKER_IMAGE: ergebnis/composer-normalize-action
+      DOCKER_IMAGE: "ergebnis/composer-normalize-action"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Build Docker image"
-        run: $(which docker) build --tag ${DOCKER_IMAGE}:latest .
+        run: "docker build --tag ${{ env.DOCKER_IMAGE }}:latest ."
 
       - name: "Docker Login"
         if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}
+        run: "echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ secrets.DOCKER_USERNAME }}"
 
       - name: "Push Docker image (latest)"
         if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
-        run: $(which docker) push ${DOCKER_IMAGE}:latest
+        run: "docker push ${{ env.DOCKER_IMAGE }}:latest"
 
       - name: "Tag Docker image (versioned)"
         if: "startsWith(github.ref, 'refs/tags/')"
-        run: $(which docker) tag ${DOCKER_IMAGE} ${DOCKER_IMAGE}:$(bash ./bin/tag-name.sh ${GITHUB_REF})
+        run: "docker tag ${{ env.DOCKER_IMAGE }} ${{ env.DOCKER_IMAGE }}:$(bash ./bin/tag-name.sh ${GITHUB_REF})"
 
       - name: "Push Docker image (versioned)"
         if: "startsWith(github.ref, 'refs/tags/')"
-        run: $(which docker) push ${DOCKER_IMAGE}:$(bash ./bin/tag-name.sh ${GITHUB_REF})
+        run: "docker push ${{ env.DOCKER_IMAGE }}:$(bash ./bin/tag-name.sh ${GITHUB_REF})"
 
       - name: "Docker Logout"
         if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
-        run: $(which docker) logout
+        run: "docker logout"
