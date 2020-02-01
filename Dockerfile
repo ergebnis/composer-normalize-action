@@ -6,7 +6,8 @@ LABEL "maintainer"="Andreas Möller <am@localheinz.com>"
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+    COMPOSER_HOME=/root/.composer
 
 RUN composer global require ergebnis/composer-normalize:2.2.0 --no-interaction --no-progress --no-suggest
 
