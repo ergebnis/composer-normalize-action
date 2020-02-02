@@ -1,0 +1,24 @@
+{
+  "name": "ergebnis/composer-normalize-action",
+  "type": "library",
+  "description": "Provides a GitHub action for running ergebnis/composer-normalize.",
+  "homepage": "https://github.com/ergebnis/composer-normalize-action",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "support": {
+    "issues": "https://github.com/ergebnis/composer-normalize-action/issues",
+    "source": "https://github.com/ergebnis/composer-normalize-action"
+  }
+}

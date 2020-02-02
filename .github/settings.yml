@@ -14,10 +14,10 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         contexts:
-          - "Docker image (no)"
-          - "Docker image (yes)"
-          - "GitHub Action (no)"
-          - "GitHub Action (yes)"
+          - "Docker image (not-required)"
+          - "Docker image (required)"
+          - "GitHub Action (not-required)"
+          - "GitHub Action (required)"
         strict: false
       restrictions: null
 
