@@ -6,8 +6,8 @@ on:
   - "pull_request"
 
 jobs:
-  build:
-    name: "Build"
+  docker-image:
+    name: "Run Docker image"
 
     runs-on: "ubuntu-latest"
 
@@ -30,8 +30,8 @@ jobs:
       - name: "Run Docker image with custom behaviour, specifying argument and options"
         run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
 
-  run:
-    name: "Run"
+  github-action:
+    name: "Run GitHub Action"
 
     runs-on: "ubuntu-latest"
 
@@ -45,10 +45,10 @@ jobs:
       - name: "Copy composer.json from .build into root directory"
         run: "cp .build/composer.json composer.json"
 
-      - name: "Run composer-normalize-action with default behavior"
+      - name: "Run GitHub Action with default behavior"
         uses: "./"
 
-      - name: "Run composer-normalize-action with custom behavior, specifying options"
+      - name: "Run GitHub Action with custom behavior, specifying options"
         uses: "./"
         with:
           args: "--diff --indent-size=1 --indent-style=tab --no-update-lock"
@@ -56,7 +56,7 @@ jobs:
       - name: "Remove composer.json from root directory"
         run: "rm composer.json"
 
-      - name: "Run composer-normalize-action with custom behavior, specifying argument and options"
+      - name: "Run GitHub Action with custom behavior, specifying argument and options"
         uses: "./"
         with:
           args: ".build/composer.json --diff --indent-size=1 --indent-style=tab --no-update-lock"
