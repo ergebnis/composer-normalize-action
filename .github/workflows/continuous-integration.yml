@@ -11,6 +11,12 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    strategy:
+      matrix:
+        required:
+          - "not-required"
+          - "required"
+
     env:
       DOCKER_IMAGE: "ergebnis/composer-normalize-action"
 
@@ -22,18 +28,24 @@ jobs:
         run: "docker build --tag ${DOCKER_IMAGE}:latest ."
 
       - name: "Run Docker image with default behaviour"
-        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build/${{ matrix.required }}:/app ${{ env.DOCKER_IMAGE }}:latest"
 
       - name: "Run Docker image with custom behaviour, specifying options"
-        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build:/app ${{ env.DOCKER_IMAGE }}:latest --diff --indent-size=1 --indent-style=space --no-update-lock"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build/${{ matrix.required }}:/app ${{ env.DOCKER_IMAGE }}:latest --diff --indent-size=1 --indent-style=space --no-update-lock"
 
       - name: "Run Docker image with custom behaviour, specifying argument and options"
-        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/${{ matrix.required }}/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
 
   github-action:
     name: "GitHub Action"
 
     runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        required:
+          - "not-required"
+          - "required"
 
     env:
       DOCKER_IMAGE: "ergebnis/composer-normalize-action"
@@ -42,8 +54,8 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.0.0"
 
-      - name: "Copy composer.json from .build into root directory"
-        run: "cp .build/composer.json composer.json"
+      - name: "Copy composer.json from .build/${{ matrix.required }} into root directory"
+        run: "cp .build/${{ matrix.required }}/composer.json composer.json"
 
       - name: "Run GitHub Action with default behavior"
         uses: "./"
@@ -59,4 +71,4 @@ jobs:
       - name: "Run GitHub Action with custom behavior, specifying argument and options"
         uses: "./"
         with:
-          args: ".build/composer.json --diff --indent-size=1 --indent-style=tab --no-update-lock"
+          args: ".build/${{ matrix.required }}/composer.json --diff --indent-size=1 --indent-style=tab --no-update-lock"
