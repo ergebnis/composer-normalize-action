@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker-image:
-    name: "Run Docker image"
+    name: "Docker image"
 
     runs-on: "ubuntu-latest"
 
@@ -31,7 +31,7 @@ jobs:
         run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
 
   github-action:
-    name: "Run GitHub Action"
+    name: "GitHub Action"
 
     runs-on: "ubuntu-latest"
 
