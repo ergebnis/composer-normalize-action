@@ -34,7 +34,10 @@ Here's an example for a workflow configuration with the default behaviour:
 ```yaml
 name: "Continuous Integration"
 
-on: "push"
+on: 
+  push:
+    paths:
+    - "composer.json"
 
 jobs:
   composer-normalize:
@@ -57,7 +60,10 @@ If you prefer to specify [arguments](https://github.com/ergebnis/composer-normal
 ```diff
  name: "Continuous Integration"
 
- on: "push"
+ on: 
+  push:
+    paths:
+    - "composer.json"
 
  jobs:
    composer-normalize:
@@ -92,7 +98,10 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
 ```diff
  name: Continuous Integration
 
- on: push
+ on: 
+  push:
+    paths:
+    - "composer.json"
 
  jobs:
    composer-normalize:
