@@ -1,5 +1,6 @@
 .PHONY: docker help it
 
+COMPOSER_NORMALIZE_VERSION:=2.5.1
 DOCKER_IMAGE:=ergebnis/composer-normalize-action
 
 it: docker ## Runs the docker target
