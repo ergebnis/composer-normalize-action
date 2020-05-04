@@ -6,7 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.7.0...master`][0.7.0...master].
+For a full diff see [`0.8.0...master`][0.8.0...master].
+
+## [`0.8.0`][0.8.0]
+
+For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
+
+### Changed
+
+* Started building Docker image based on `composer-normalize.phar` ([#81]), by [@localheinz]
+* Stopped running with `--dry-run` option by default ([#81]), by [@localheinz]
 
 ## [`0.7.0`][0.7.0]
 
@@ -165,6 +174,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [0.5.2]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.5.2
 [0.6.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.6.0
 [0.7.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.7.0
+[0.8.0]: https://github.com/ergebnis/composer-normalize-action/releases/tag/0.8.0
 
 [afa2393...0.1.0]: https://github.com/ergebnis/composer-normalize-action/compare/afa2393...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.1.0...0.2.0
@@ -183,7 +193,8 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [0.5.1...0.5.2]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.1...0.5.2
 [0.5.2...0.6.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.2...0.6.0
 [0.6.0...0.7.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.6.0...0.7.0
-[0.7.0...master]: https://github.com/ergebnis/composer-normalize-action/compare/0.7.0...master
+[0.7.0...0.8.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.7.0...0.8.0
+[0.8.0...master]: https://github.com/ergebnis/composer-normalize-action/compare/0.8.0...master
 
 [#6]: https://github.com/ergebnis/composer-normalize-action/pull/6
 [#7]: https://github.com/ergebnis/composer-normalize-action/pull/7
@@ -206,6 +217,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [#59]: https://github.com/ergebnis/composer-normalize-action/pull/59
 [#63]: https://github.com/ergebnis/composer-normalize-action/pull/63
 [#64]: https://github.com/ergebnis/composer-normalize-action/pull/64
+[#81]: https://github.com/ergebnis/composer-normalize-action/pull/81
 
 [@localheinz]: https://github.com/localheinz
 [@ergebnis]: https://github.com/localheinz

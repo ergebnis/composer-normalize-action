@@ -18,21 +18,28 @@ Define a workflow in `.github/workflows/continuous-integration.yml` (or add a jo
 By default this action will run
 
 ```
-$ composer normalize --dry-run
+$ composer normalize
 ```
 
 in the working directory.
 
-When you use this action in a step with the default behaviour, the step will fail when `composer.json`
+When you use this action in a step with the default behaviour, the step will fail when
 
-- does not exist in this directory (be sure to checkout the code first, see [`actions/checkout`](https://github.com/actions/checkout))
-- is not valid
-- is not already normalized
+- `composer.json` does not exist in this directory (be sure to checkout the code first, see [`actions/checkout`](https://github.com/actions/checkout))
+- `composer.json` is not valid
+- `composer.json` is valid, but `composer.lock` is not up-to-date with `composer.json`
+
+and the step will succeed when
+
+- `composer.json` is valid, `composer.lock` is not present, and `composer.json` and not yet normalized or could be successfully normalized
+- `composer.json` is valid, `composer.lock` is present and up-to-date, and `composer.json`, and `composer.json` and not yet normalized or could be successfully normalized
+
+:bulb: If you want the step to fail when `composer.json` is not yet normalized, you need to run with the `--dry-run` options, see below.
 
 Here's an example for a workflow configuration with the default behaviour:
 
 ```yaml
-name: "Continuous Integration"
+name: "Integrate"
 
 on: "push"
 
@@ -44,7 +51,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2.0.0"
+        uses: "actions/checkout@v2"
 
       - name: "Run composer normalize"
         uses: "docker://ergebnis/composer-normalize-action:latest"
@@ -55,7 +62,7 @@ jobs:
 If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/master#arguments) or [options](https://github.com/ergebnis/composer-normalize/master#options) yourself, you can configure those using the `args` option:
 
 ```diff
- name: "Continuous Integration"
+ name: "Integrate"
 
  on: "push"
 
@@ -72,7 +79,7 @@ If you prefer to specify [arguments](https://github.com/ergebnis/composer-normal
        - name: "Run composer normalize"
          uses: "docker://ergebnis/composer-normalize-action:latest"
 +        with:
-+          args: "./sub-directory/composer.json --diff --indent-size=2 --indent-style=space"
++          args: "--diff --dry-run --indent-size=2 --indent-style=space"
 ```
 
 ### Docker image
@@ -90,7 +97,7 @@ For more information, see the [Docker Docs: Docker run reference](https://docs.d
 Instead of using the latest pre-built Docker image, you can also specify a Docker image tag (which corresponds to the tags [released on GitHub](https://github.com/ergebnis/composer-normalize-action/releases)):
 
 ```diff
- name: Continuous Integration
+ name: Integrate
 
  on: push
 
@@ -102,7 +109,7 @@ Instead of using the latest pre-built Docker image, you can also specify a Docke
 
      steps:
        - name: "Checkout"
-         uses: "actions/checkout@v2.0.0"
+         uses: "actions/checkout@v2"
 
        - name: "Run composer normalize"
 -        uses: "docker://ergebnis/composer-normalize-action:latest"
