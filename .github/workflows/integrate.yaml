@@ -1,0 +1,163 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Integrate"
+
+on: # yamllint disable-line rule:truthy
+  pull_request: null
+  push:
+    branches:
+      - "master"
+
+env:
+  DOCKER_IMAGE: "ergebnis/composer-normalize-action"
+
+jobs:
+  docker-image:
+    name: "Docker image"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        required:
+          - "not-required"
+          - "required"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Build Docker image"
+        run: "docker build --tag ${DOCKER_IMAGE}:latest ."
+
+      - name: "Run Docker image with default behaviour"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build/${{ matrix.required }}:/app ${{ env.DOCKER_IMAGE }}:latest"
+
+      - name: "Run Docker image with custom behaviour, specifying options"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}/.build/${{ matrix.required }}:/app ${{ env.DOCKER_IMAGE }}:latest --diff --indent-size=1 --indent-style=space --no-update-lock"
+
+      - name: "Run Docker image with custom behaviour, specifying argument and options"
+        run: "docker run --interactive --rm --workdir=/app --volume ${GITHUB_WORKSPACE}:/app ${{ env.DOCKER_IMAGE }}:latest .build/${{ matrix.required }}/composer.json --diff --indent-size=2 --indent-style=space  --no-update-lock"
+
+  github-action:
+    name: "GitHub Action"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        required:
+          - "not-required"
+          - "required"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Copy composer.json from .build/${{ matrix.required }} into root directory"
+        run: "cp .build/${{ matrix.required }}/composer.json composer.json"
+
+      - name: "Run GitHub Action with default behavior"
+        uses: "./"
+
+      - name: "Run GitHub Action with custom behavior, specifying options"
+        uses: "./"
+        with:
+          args: "--diff --indent-size=1 --indent-style=tab --no-update-lock"
+
+      - name: "Remove composer.json from root directory"
+        run: "rm composer.json"
+
+      - name: "Run GitHub Action with custom behavior, specifying argument and options"
+        uses: "./"
+        with:
+          args: ".build/${{ matrix.required }}/composer.json --diff --indent-size=1 --indent-style=tab --no-update-lock"
+
+  merge:
+    name: "Merge"
+
+    runs-on: "ubuntu-latest"
+
+    needs:
+      - "docker-image"
+      - "github-action"
+
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false && (
+        github.event.action == 'opened' ||
+        github.event.action == 'reopened' ||
+        github.event.action == 'synchronize'
+      ) && (
+        (github.actor == 'localheinz' && contains(github.event.pull_request.labels.*.name, 'merge'))
+      )
+
+    steps:
+      - name: "Request review from @ergebnis-bot"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            const reviewers = [
+              "ergebnis-bot",
+            ]
+
+            await github.pulls.createReviewRequest({
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+              reviewers: reviewers,
+            })
+
+      - name: "Assign @ergebnis-bot"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            const reviewers = [
+              "ergebnis-bot",
+            ]
+
+            await github.issues.addAssignees({
+              assignees: reviewers,
+              issue_number: pullRequest.number,
+              owner: repository.owner,
+              repo: repository.repo,
+            })
+
+      - name: "Approve pull request"
+        uses: "actions/github-script@0.8.0"
+        if: "github.actor != 'ergebnis-bot'"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            await github.pulls.createReview({
+              event: "APPROVE",
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })
+
+      - name: "Merge pull request"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            await github.pulls.merge({
+              merge_method: "merge",
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })

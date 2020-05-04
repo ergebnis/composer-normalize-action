@@ -2,26 +2,26 @@
 
 name: "Deploy"
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - "master"
     tags:
       - "**"
 
+env:
+  DOCKER_IMAGE: "ergebnis/composer-normalize-action"
+  DOCKER_USERNAME: "ergebnis"
+
 jobs:
   build:
-    name: "Build and deploy"
+    name: "Deploy"
 
     runs-on: "ubuntu-latest"
 
-    env:
-      DOCKER_IMAGE: "ergebnis/composer-normalize-action"
-      DOCKER_USERNAME: "ergebnis"
-
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2.0.0"
+        uses: "actions/checkout@v2"
 
       - name: "Build Docker image"
         run: "docker build --tag ${{ env.DOCKER_IMAGE }}:latest ."

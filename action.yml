@@ -1,15 +1,15 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 
-author: 'localheinz'
+author: "localheinz"
 
 branding:
-  icon: 'box'
-  color: 'green'
+  icon: "box"
+  color: "green"
 
-description: 'Ensure your PHP project has a normalized composer.json.'
+description: "Ensure your PHP project has a normalized composer.json."
 
-name: 'composer-normalize-action'
+name: "composer-normalize-action"
 
 runs:
-  using: 'docker'
-  image: 'docker://ergebnis/composer-normalize-action'
+  using: "docker"
+  image: "docker://ergebnis/composer-normalize-action"
