@@ -59,7 +59,7 @@ jobs:
 
 ### Custom Behavior
 
-If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/master#arguments) or [options](https://github.com/ergebnis/composer-normalize/master#options) yourself, you can configure those using the `args` option:
+If you prefer to specify [arguments](https://github.com/ergebnis/composer-normalize/tree/main#arguments) or [options](https://github.com/ergebnis/composer-normalize/main#options) yourself, you can configure those using the `args` option:
 
 ```diff
  name: "Integrate"
@@ -84,7 +84,7 @@ If you prefer to specify [arguments](https://github.com/ergebnis/composer-normal
 
 ### Docker image
 
-As Docker images are automatically built and pushed on a merge to `master` or when a new tag is created in this repository, the recommended way to use this GitHub action is to reference the pre-built Docker image directly, as seen above.
+As Docker images are automatically built and pushed on a merge to `main` or when a new tag is created in this repository, the recommended way to use this GitHub action is to reference the pre-built Docker image directly, as seen above.
 
 :bulb: The Docker image can also be executed directly by running
 
@@ -126,7 +126,7 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/master/CODE_OF_CONDUCT.md).
+Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 

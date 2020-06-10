@@ -5,7 +5,7 @@ name: "Deploy"
 on: # yamllint disable-line rule:truthy
   push:
     branches:
-      - "master"
+      - "main"
     tags:
       - "**"
 
@@ -27,11 +27,11 @@ jobs:
         run: "docker build --tag ${{ env.DOCKER_IMAGE }}:latest ."
 
       - name: "Docker Login"
-        if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
+        if: "'refs/heads/main' == github.ref || startsWith(github.ref, 'refs/tags/')"
         run: "echo ${{ secrets.DOCKER_PASSWORD }} | $(which docker) login --password-stdin --username ${{ env.DOCKER_USERNAME }}"
 
       - name: "Push Docker image (latest)"
-        if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
+        if: "'refs/heads/main' == github.ref || startsWith(github.ref, 'refs/tags/')"
         run: "docker push ${{ env.DOCKER_IMAGE }}:latest"
 
       - name: "Tag Docker image (versioned)"
@@ -43,5 +43,5 @@ jobs:
         run: "docker push ${{ env.DOCKER_IMAGE }}:$(bash ./bin/tag-name.sh ${GITHUB_REF})"
 
       - name: "Docker Logout"
-        if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"
+        if: "'refs/heads/main' == github.ref || startsWith(github.ref, 'refs/tags/')"
         run: "docker logout"
