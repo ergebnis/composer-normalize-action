@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.8.0...master`][0.8.0...master].
+For a full diff see [`0.8.0...main`][0.8.0...main].
 
 ## [`0.8.0`][0.8.0]
 
@@ -194,7 +194,7 @@ For a full diff see [`afa2393...0.1.0`][afa2393...0.1.0].
 [0.5.2...0.6.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.5.2...0.6.0
 [0.6.0...0.7.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.6.0...0.7.0
 [0.7.0...0.8.0]: https://github.com/ergebnis/composer-normalize-action/compare/0.7.0...0.8.0
-[0.8.0...master]: https://github.com/ergebnis/composer-normalize-action/compare/0.8.0...master
+[0.8.0...main]: https://github.com/ergebnis/composer-normalize-action/compare/0.8.0...main
 
 [#6]: https://github.com/ergebnis/composer-normalize-action/pull/6
 [#7]: https://github.com/ergebnis/composer-normalize-action/pull/7
